@@ -57,19 +57,13 @@ public class MovieRepositoryImpl implements MovieRepository {
     @Transactional
     public int insert(Movie movie) {
         MovieEntity movieEntity = movieDAO.save(MovieMapper.mapper.toMovieEntity(movie));
-        movie.getCharacterMovie().forEach(characterMovie ->
-                movieDAO.addCharactersToMovie(
-                        movieEntity.getId(),
-                        characterMovie.getActor().getId(),
-                        characterMovie.getCharacterActor()
-                )
-        );
         return movieEntity.getId();
     }
 
     @Override
+    @Transactional
     public void update(Movie movie) {
-
+        MovieEntity movieEntity = movieDAO.save(MovieMapper.mapper.toMovieEntity(movie));
     }
 
     @Override

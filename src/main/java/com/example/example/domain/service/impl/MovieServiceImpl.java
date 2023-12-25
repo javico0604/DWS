@@ -50,6 +50,7 @@ public class MovieServiceImpl implements MovieService {
         //movie.setActors(actors);
 
         List<CharacterMovie> characterMovieList = characterMovieRepository.findByMovieId(movieId);
+        System.out.println(characterMovieList);
         characterMovieList.forEach(characterMovie -> characterMovie.setActor(actorRepository.find(characterMovie.getActor().getId()).orElse(null)));
         movie.setCharacterMovie(characterMovieList);
 

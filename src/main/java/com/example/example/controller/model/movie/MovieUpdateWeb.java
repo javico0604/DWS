@@ -13,7 +13,7 @@ public class MovieUpdateWeb {
     private int id;
     private String title;
     private int year;
-    private int runTime;
+    private int runtime;
     private int directorId;
     private Map<Integer, String> characters;
 }
